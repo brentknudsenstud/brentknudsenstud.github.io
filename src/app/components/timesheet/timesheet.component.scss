@@ -1,0 +1,43 @@
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.cards {
+    margin: auto;
+    
+}
+input {
+    background-color: white;
+    padding: 5px 0;
+}
+
+.mat-icon {
+  color: rgb(121, 16, 121);
+}
+
+mat-form-field {
+    width: calc(100% - 40px);
+}
+
+.hours {
+    margin-top: 30px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hours-input {
+    max-width: 75px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.total-cell {
+    text-align: center;
+}
+
+td button mat-icon {
+    color: gray;
+}

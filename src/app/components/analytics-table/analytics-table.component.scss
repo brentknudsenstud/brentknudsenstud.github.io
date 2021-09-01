@@ -1,0 +1,17 @@
+th {
+    border-bottom: 1pt solid purple;
+
+    &:not(:firstchild) {
+        padding-left: 15px;
+    }
+}
+
+td {
+    text-align: center;
+    padding: 10px 0;
+}
+
+tr td {
+    border-bottom: 1pt solid rgb(211, 1, 211);
+
+}

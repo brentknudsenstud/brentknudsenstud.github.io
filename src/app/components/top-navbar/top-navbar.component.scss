@@ -1,0 +1,25 @@
+.material-icons {
+    font-size: 35px;
+}
+
+mat-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.mat-icon-button i, .mat-icon-button .mat-icon {
+    line-height: 35px;
+    color: rgb(26, 26, 209);
+    text-shadow: 2px 2px 5px rgb(100, 84, 11);
+}
+
+div {
+    margin-left: 10px;
+    cursor: pointer;
+    
+}
+
+mat-toolbar {
+    background-color: rgb(230, 153, 11);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
