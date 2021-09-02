@@ -12,10 +12,13 @@ import { AnalyticsTableComponent } from './components/analytics-table/analytics-
 import { MaterialModule } from './modules/material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { DepartmentsComponent } from './components/departments/departments.component';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatCardModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
