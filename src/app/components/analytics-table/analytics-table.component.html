@@ -9,7 +9,7 @@
         </thead>
     
         <tbody>
-            <tr *ngFor="let employee of employeeData; let i = index">
+            <tr *ngFor="let employee of employees; let i = index">
                 <td>{{employee.name}}</td>
                 <td *ngFor="let day of weekdays">{{employee[day] | number:'1.2-2'}}</td>
                 <td class="total-cell">{{getTotalHours(employee) | number:'1.2-2'}}</td>

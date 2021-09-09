@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Department } from 'src/app/interfaces/department';
 import { DepartmentsService } from 'src/app/services/departments.service';
 import { AbstractControl, FormControl, ValidatorFn } from '@angular/forms';
 import { Employee } from 'src/app/interfaces/employee';
-
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 
@@ -23,13 +23,18 @@ export class TimesheetComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private departmentsService: DepartmentsService) { 
-    
-  }
+    private departmentsService: DepartmentsService, 
+    private employeeService: EmployeeService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.departments = this.departmentsService.departments;
     this.department = this.departments.find(department => department.id === this.route.snapshot.params['id']);
+    
+    this.employeeService.getEmployeeHoursByDepartment(this.department.id).subscribe(employees => {
+      this.employees = employees;
+    });
   }
 
   addEmployee(): void{
@@ -37,7 +42,7 @@ export class TimesheetComponent implements OnInit {
       this.employeeId++;
 
       this.employees.push({
-        id: this.employees.toString(),
+        // id: this.employees.toString(),
         departmentId: this.department.id,
         name: this.employeeNameFC.value,
         payRate: Math.floor(Math.random() * 50) + 50,
@@ -73,8 +78,23 @@ export class TimesheetComponent implements OnInit {
     return employee.monday + employee.tuesday + employee.wednesday + employee.thursday + employee.friday + employee.saturday + employee.sunday;
   }
 
-  deleteEmployee(index: number): void {
-    this.employees.splice(index, 1);
+  deleteEmployee(employee: Employee, index: number): void {
+      if (employee.id) {
+          this.employeeService.deleteEmployeeHours(employee);
+      }
+  
+      this.employees.splice(index, 1);
+  }
+  submit(): void {
+    this.employees.forEach(employee => {
+      if (employee.id) {
+        this.employeeService.updateEmployeeHours(employee);
+    } else {
+        this.employeeService.saveEmployeeHours(employee);
+    }
+    });
+    
+    this.router.navigate(['./departments'])
   }
 
 } 
