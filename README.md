@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-##Using the app
+## Using the app
 
 1) On the home screen, click one of three departments (Customer Success, Sales or Finance). 
 2) After clicking on the department of your choice, for example "Customer Success", a new card will appear with a field to enter and add an employee's name.
