@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DepartmentsService {
   departments: Department[] = [
-    {id: '1', name: 'Customer Success'},
+    {id: '1', name: 'Customer Service'},
     {id: '2', name: 'Sales'},
     {id: '3', name: 'Finance'},
 ];
